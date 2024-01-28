@@ -1,5 +1,7 @@
 # IoT Radar: Python - Micropython - Mosquito MQTT
 
+This repository contains a basic IoT MQTT solution to create a radar animation (_incl. distance and angle_). The publisher script is written in MicroPython and subscriber script is written in Python.
+
 ## Install Mosquito MQTT broker
 
 ```shell
@@ -36,7 +38,7 @@ allow_anonymous true
 
 ## Test Mosquitto
 
-You can use this manual test for the `mosquitto service` and also to test publisher: `main.py` and/or subscriber: `radar.py`.
+You can use this manual test for the `mosquitto.service` and also to test publisher: `main.py` and/or subscriber: `radar.py`.
 
 ### ttys001
 
