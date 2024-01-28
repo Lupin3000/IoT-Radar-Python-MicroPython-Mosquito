@@ -2,6 +2,11 @@
 
 This repository contains a basic IoT MQTT solution to create a radar animation (_incl. distance and angle_). The publisher script is written in MicroPython and subscriber script is written in Python.
 
+I tested the Mosquito MQTT broker on Raspberry Pi 4 - Bookworm, the MQTT publisher Radar UI on macOS 14.3 and the subscriber on ESP32 - MicroPython 1.20.0.
+
+The Radar UI uses Python Tkinter with screen size 500x400.
+
+
 ## Install Mosquito MQTT broker
 
 ```shell
