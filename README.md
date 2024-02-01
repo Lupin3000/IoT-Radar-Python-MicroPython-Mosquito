@@ -1,4 +1,4 @@
-# IoT Radar: Python - Micropython - Mosquito MQTT
+# IoT Radar: Python - MicroPython - Mosquito MQTT
 
 This repository contains a basic IoT MQTT solution to create a radar animation (_incl. distance and angle_). The publisher script is written in MicroPython and subscriber script is written in Python.
 
