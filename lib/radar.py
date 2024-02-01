@@ -3,6 +3,9 @@ from math import cos, sin, radians
 
 
 class Radar:
+    """
+    Radar class to represent a Radar UI via a Tk interface
+    """
 
     _FONT: str = "Helvetica"
     _COLORS: dict = {
@@ -16,7 +19,7 @@ class Radar:
 
     def __init__(self, screen_width: int, screen_height: int, title: str) -> None:
         """
-        Radar UI constructor
+        Radar UI interface constructor
         :param screen_width: width of the screen
         :param screen_height: height of the screen
         """
@@ -56,7 +59,7 @@ class Radar:
 
     def _draw_line(self, angle: int, color: str) -> None:
         """
-        Draw line with given angle and color
+        Draw line with given angle and color on interface
         :param angle: angle in degrees
         :return: None
         """
@@ -70,7 +73,7 @@ class Radar:
 
     def _draw_text(self, x: int, y: int, text: str, color: str, font_size: int = 20) -> None:
         """
-        Draw given text with values
+        Draw given text with values on interface
         :param x: x position as integer
         :param y: y position as integer
         :param text: string with current line angle
@@ -86,7 +89,7 @@ class Radar:
 
     def _draw_background(self) -> None:
         """
-        Draw radar background graphic
+        Draw radar background graphic on interface
         :return: None
         """
         color = self._COLORS['background']
@@ -141,7 +144,7 @@ class Radar:
 
     def _draw_point(self, distance: int, angle: int) -> None:
         """
-        Draw point on radar with given distance and angle
+        Draw point on radar with given distance and angle on interface
         :param distance: distance in centimeters
         :param angle: angle in degrees
         :return: None
