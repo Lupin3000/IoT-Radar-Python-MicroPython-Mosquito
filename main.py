@@ -27,7 +27,7 @@ def on_publish(clint, topic, payload) -> None:
 
 def generate_numbers(minimum, maximum, step):
     """
-    Generates a numbers between minimum and maximum by step
+    Generates continuous numbers between minimum and maximum by step
     :param minimum: number for minimum
     :param maximum: number for maximum
     :param step: step between numbers
