@@ -131,3 +131,12 @@ If you're inside the REPL, you can press `ctrl` + `c` to stop execution and `ctr
 ### Example result
 
 ![example.jpg](./img/example.jpg)
+
+## Additional information
+
+**Stop: virtualenv**
+
+```shell
+# stop virtualenv
+(.venv) $ deactivate
+```
