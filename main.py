@@ -15,10 +15,24 @@ DELAY = const(25)
 
 
 def on_publish(clint, topic, payload) -> None:
+    """
+    Publishes message to MQTT
+    :param clint: mqtt client
+    :param topic: mqtt topic
+    :param payload: mqtt payload
+    :return: None
+    """
     clint.publish(topic, payload.encode())
 
 
-def generate_numbers(minimum, maximum, step) -> None:
+def generate_numbers(minimum, maximum, step):
+    """
+    Generates a numbers between minimum and maximum by step
+    :param minimum: number for minimum
+    :param maximum: number for maximum
+    :param step: step between numbers
+    :return: number value as int
+    """
     num = minimum
     direction = 1
 
