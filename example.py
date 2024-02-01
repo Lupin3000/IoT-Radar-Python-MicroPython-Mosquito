@@ -5,6 +5,7 @@ from config.configuration import (WINDOW_WIDTH, WINDOW_HEIGHT, ARC_RADIUS, ARC_S
                                   MQTT_BROKER, MQTT_PORT, MQTT_TOPIC)
 from lib.radar import Radar
 
+
 MQTT_SUBSCRIBER_CLIENT_ID = f'subscriber-{randint(0, 1000)}'
 
 
@@ -12,9 +13,9 @@ def verify_and_split(input_string: str) -> dict:
     """
     Verifies that the input string matches the needed format
     :param input_string: mqtt message as string
-    :return: dict
+    :return: dict with values for degree and distance
     """
-    pattern = r"([1-9]\d*);([1-9]\d*)"
+    pattern = r"([0-9]\d*);([0-9]\d*)"
     check = match(pattern, input_string)
 
     if check:
@@ -24,7 +25,14 @@ def verify_and_split(input_string: str) -> dict:
         return {'degree': False, 'distance': False}
 
 
-def on_message(client, userdata, message):
+def on_message(client, userdata, message) -> None:
+    """
+    Callback function for MQTT messages
+    :param client: mqtt client
+    :param userdata: mqtt userdata
+    :param message: mqtt message
+    :return: None
+    """
     global radar
 
     _ = client
