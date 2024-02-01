@@ -43,7 +43,7 @@ allow_anonymous true
 
 ## Test Mosquitto
 
-You can use this manual test for the `mosquitto.service` and also to test publisher: `main.py` and/or subscriber: `radar.py`.
+You can use this manual test for the `mosquitto.service` and also to test publisher: `main.py` and/or subscriber: `example.py`.
 
 ### ttys001
 
@@ -59,11 +59,11 @@ $ mosquitto_sub -d -t python/mqtt
 $ mosquitto_pub -d -t python/mqtt -m "90;225"
 ```
 
-> **Important for `radar.py`:** 
+> **Important for `example.py`:** 
 > - The first value `90` means degrees in ° and second value `225` means distance in cm.
 > - Values must be separated by `;`
 > - Degrees min value is `45` and max value is `135` for `radar.py`
-> - Distance min value is `0` and max value is `325` for `radar.py`
+> - Distance min value is `0` and max value is `350` for `radar.py`
 
 ## Local Development Environment
 
@@ -104,16 +104,16 @@ $ pip3 install -r requirements.txt
 
 ### Start subscriber script on local environment
 
-**Start: `radar.py`**
+**Start: `example.py`**
 
 ```shell
 # start subscriber
-(.venv) $ python3 -B radar.py 
+(.venv) $ python3 -B example.py 
 ```
 
 **Stop: `radar.py`**
 
-Press `ctrl` + `c` to stop `radar.py` execution.
+Press `ctrl` + `c` to stop `example.py` execution.
 
 ### Start publisher script to ESP32
 
