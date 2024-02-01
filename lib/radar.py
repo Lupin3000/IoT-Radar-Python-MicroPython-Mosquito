@@ -16,7 +16,7 @@ class Radar:
 
     def __init__(self, screen_width: int, screen_height: int, title: str) -> None:
         """
-        Radar constructor
+        Radar UI constructor
         :param screen_width: width of the screen
         :param screen_height: height of the screen
         """
@@ -40,7 +40,7 @@ class Radar:
 
     def configure(self, line_width: int, max_radius: int, arc_distance: int, start_angle: int, end_angle: int) -> None:
         """
-        Configure the radar values
+        Configure the radar
         :param line_width: line width of the graphics
         :param max_radius: arc max radius
         :param arc_distance: arc distance in pixel
@@ -56,7 +56,7 @@ class Radar:
 
     def _draw_line(self, angle: int, color: str) -> None:
         """
-        Draw line with given angle on the screen
+        Draw line with given angle and color
         :param angle: angle in degrees
         :return: None
         """
@@ -70,7 +70,7 @@ class Radar:
 
     def _draw_text(self, x: int, y: int, text: str, color: str, font_size: int = 20) -> None:
         """
-        Draw current line angle as text on display
+        Draw given text with values
         :param x: x position as integer
         :param y: y position as integer
         :param text: string with current line angle
@@ -86,7 +86,7 @@ class Radar:
 
     def _draw_background(self) -> None:
         """
-        Draw radar background
+        Draw radar background graphic
         :return: None
         """
         color = self._COLORS['background']
@@ -141,7 +141,7 @@ class Radar:
 
     def _draw_point(self, distance: int, angle: int) -> None:
         """
-        Draw point
+        Draw point on radar with given distance and angle
         :param distance: distance in centimeters
         :param angle: angle in degrees
         :return: None
@@ -155,6 +155,12 @@ class Radar:
         self.canvas.create_oval(x - 5, y - 5, x + 5, y + 5, fill=color)
 
     def update(self, distance: int, angle: int) -> None:
+        """
+        Update the radar with given distance and angle
+        :param distance: distance in centimeters
+        :param angle: angle in radian
+        :return: None
+        """
         current_distance = int(distance)
         current_angle = int(angle)
 
