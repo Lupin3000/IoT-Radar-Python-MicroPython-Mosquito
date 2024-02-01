@@ -12,7 +12,7 @@ ARC_STEPS = 100
 WLAN_SSID = ''
 WLAN_PASSWORD = ''
 
-# broker configuration (radar.py & main.py)
+# broker configuration (example.py & main.py)
 MQTT_BROKER = 'rectangle.local'
 MQTT_PORT = 1883
 MQTT_TOPIC = "python/mqtt"
