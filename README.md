@@ -87,7 +87,13 @@ $ pip3 install -r requirements.txt
 
 ### Upload publisher scripts to ESP32
 
+> The device name `cu.usbserial-0001` can be different for you!
+
 ```shell
+# verifiy serial connection (optional)
+(.venv) $ ls -la /dev/cu.*
+crw-rw-rw-  1 root  wheel  0x9000007 Feb  1 16:43 /dev/cu.usbserial-0001
+
 # upload main.py to ESP32
 (.venv) $ rshell -p /dev/cu.usbserial-0001 cp main.py /pyboard/
 
@@ -100,7 +106,7 @@ $ pip3 install -r requirements.txt
 
 ## Run everything
 
-> The broker should run already and must be reachable! It doesn't matter in which order you start the publisher: `main.py` and subscriber: `radar.py`.
+> The broker should run already and must be reachable! It doesn't matter in which order you start the publisher: `main.py` and subscriber: `example.py`.
 
 ### Start subscriber script on local environment
 
