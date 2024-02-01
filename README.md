@@ -127,3 +127,7 @@ Press `ctrl` + `d` (_if you use REPL_) or reset button on device to start the `m
 **Stop: `main.py`**
 
 If you're inside the REPL, you can press `ctrl` + `c` to stop execution and `ctrl` + `x` to close REPL and connection.
+
+### Example result
+
+![example.jpg](./img/example.jpg)
