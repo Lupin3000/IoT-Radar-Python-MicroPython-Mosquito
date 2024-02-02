@@ -56,11 +56,11 @@ $ mosquitto_sub -d -t python/mqtt
 $ mosquitto_pub -d -t python/mqtt -m "90;225"
 ```
 
-> **Important for `example.py`:** 
-> - The first value `90` means degrees in ° and second value `225` means distance in cm.
+> **Important for testing `example.py`:** 
+> - The first value `90` means degrees and second value `225` means distance.
 > - Values must be separated by `;`
-> - Degrees min value is `45` and max value is `135` for `radar.py`
-> - Distance min value is `0` and max value is `350` for `radar.py`
+> - Degrees min value is `45` and max value is `135`
+> - Distance min value is `0` and max value is `350`
 
 ## Local Development Environment
 

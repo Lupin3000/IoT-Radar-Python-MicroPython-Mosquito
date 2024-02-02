@@ -7,6 +7,7 @@ class Radar:
     Radar class to represent a Radar UI via a Tk interface
     """
 
+    _DISTANCE: str = "cm"
     _FONT: str = "Helvetica"
     _COLORS: dict = {
         'background': 'white',
@@ -137,8 +138,17 @@ class Radar:
             if angle_total >= 90:
                 text_end_x -= 25
 
-            self._draw_text(x=text_start_x, y=text_start_y, text=f'{radius}cm', color=color, font_size=10)
-            self._draw_text(x=text_end_x, y=text_end_y, text=f'{radius}cm', color=color, font_size=10)
+            self._draw_text(x=text_start_x,
+                            y=text_start_y,
+                            text=f'{radius}{self._DISTANCE}',
+                            color=color,
+                            font_size=10)
+
+            self._draw_text(x=text_end_x,
+                            y=text_end_y,
+                            text=f'{radius}{self._DISTANCE}',
+                            color=color,
+                            font_size=10)
 
             radius -= self._arc_distance
 
