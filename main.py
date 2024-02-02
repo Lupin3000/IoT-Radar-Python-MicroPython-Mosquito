@@ -14,15 +14,15 @@ STEP = const(1)
 DELAY = const(25)
 
 
-def on_publish(clint, topic, payload) -> None:
+def on_publish(client, topic, payload) -> None:
     """
     Publishes message to MQTT
-    :param clint: mqtt client
+    :param client: mqtt client
     :param topic: mqtt topic
     :param payload: mqtt payload
     :return: None
     """
-    clint.publish(topic, payload.encode())
+    client.publish(topic, payload.encode())
 
 
 def generate_numbers(minimum, maximum, step):
@@ -61,8 +61,8 @@ if __name__ == '__main__':
     print(f'[INFO] connected to WLAN {WLAN_SSID}')
 
     print(f'[INFO] connecting to MQTT')
-    client = MQTTClient(client_id=MQTT_CLIENT_ID, server=MQTT_BROKER, port=MQTT_PORT)
-    client.connect()
+    mqtt_client = MQTTClient(client_id=MQTT_CLIENT_ID, server=MQTT_BROKER, port=MQTT_PORT)
+    mqtt_client.connect()
 
     generator = generate_numbers(MIN_VALUE, MAX_VALUE, STEP)
 
@@ -71,5 +71,5 @@ if __name__ == '__main__':
         angle = next(generator)
         distance = randint(150, 200)
 
-        on_publish(clint=client, topic=MQTT_TOPIC, payload=f'{int(angle)};{int(distance)}')
+        on_publish(client=mqtt_client, topic=MQTT_TOPIC, payload=f'{int(angle)};{int(distance)}')
         sleep_ms(DELAY)
