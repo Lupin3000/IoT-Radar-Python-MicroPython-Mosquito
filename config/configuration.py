@@ -1,4 +1,4 @@
-# subscriber configuration (radar.py)
+# subscriber configuration (example.py)
 WINDOW_WIDTH = 600
 WINDOW_HEIGHT = 450
 
