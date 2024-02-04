@@ -10,7 +10,8 @@ class Radar:
     _DISTANCE: str = "cm"
     _FONT: str = "Helvetica"
     _COLORS: dict = {
-        'background': 'white',
+        'radar': 'white',
+        'background': 'black',
         'point': 'cornflower blue',
         'line': 'lawn green',
         'line_text': 'cyan'
@@ -39,7 +40,7 @@ class Radar:
         self.screen.geometry(f'{self._screen_width}x{self._screen_height}+0+0')
         self.screen.resizable(width=False, height=False)
 
-        self.canvas = Canvas(self.screen, bg='black')
+        self.canvas = Canvas(self.screen, bg=self._COLORS['background'])
         self.canvas.pack(expand=True, fill=BOTH)
 
     def configure(self, line_width: int, max_radius: int, arc_distance: int, start_angle: int, end_angle: int) -> None:
@@ -88,12 +89,13 @@ class Radar:
 
         self.canvas.create_text(x_pos, y_pos, text=str(text), font=font, fill=color)
 
-    def _draw_background(self) -> None:
+    def _draw_background(self, show_measurement: bool = True) -> None:
         """
         Draw radar background graphic on interface
+        :param show_measurement: whether to show the measurement or not
         :return: None
         """
-        color = self._COLORS['background']
+        color = self._COLORS['radar']
         angle_total = self._angle_start + self._angle_end
         x1 = self._center_x - self._max_radius
         y1 = self._center_y - self._max_radius
@@ -118,39 +120,40 @@ class Radar:
 
         radius = self._max_radius
 
-        for _ in range(self._ARC_STEPS):
-            text_start_x = self._center_x + radius * cos(radians(self._angle_start))
-            text_start_y = self._center_y - radius * sin(radians(self._angle_start))
-            text_end_x = self._center_x + radius * cos(radians(angle_total))
-            text_end_y = self._center_y - radius * sin(radians(angle_total))
+        if bool(show_measurement):
+            for _ in range(self._ARC_STEPS):
+                text_start_x = self._center_x + radius * cos(radians(self._angle_start))
+                text_start_y = self._center_y - radius * sin(radians(self._angle_start))
+                text_end_x = self._center_x + radius * cos(radians(angle_total))
+                text_end_y = self._center_y - radius * sin(radians(angle_total))
 
-            if self._angle_start == 0:
-                text_start_x -= 25
-                text_start_y += 10
+                if self._angle_start == 0:
+                    text_start_x -= 25
+                    text_start_y += 10
 
-            if angle_total == 180:
-                text_end_x += 25
-                text_end_y += 10
+                if angle_total == 180:
+                    text_end_x += 25
+                    text_end_y += 10
 
-            if self._angle_start <= 90:
-                text_start_x += 25
+                if self._angle_start <= 90:
+                    text_start_x += 25
 
-            if angle_total >= 90:
-                text_end_x -= 25
+                if angle_total >= 90:
+                    text_end_x -= 25
 
-            self._draw_text(x=text_start_x,
-                            y=text_start_y,
-                            text=f'{radius}{self._DISTANCE}',
-                            color=color,
-                            font_size=10)
+                self._draw_text(x=text_start_x,
+                                y=text_start_y,
+                                text=f'{radius}{self._DISTANCE}',
+                                color=color,
+                                font_size=10)
 
-            self._draw_text(x=text_end_x,
-                            y=text_end_y,
-                            text=f'{radius}{self._DISTANCE}',
-                            color=color,
-                            font_size=10)
+                self._draw_text(x=text_end_x,
+                                y=text_end_y,
+                                text=f'{radius}{self._DISTANCE}',
+                                color=color,
+                                font_size=10)
 
-            radius -= self._arc_distance
+                radius -= self._arc_distance
 
     def _draw_point(self, distance: int, angle: int) -> None:
         """
