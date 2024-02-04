@@ -24,6 +24,7 @@ class Radar:
         Radar UI interface constructor
         :param screen_width: width of the screen
         :param screen_height: height of the screen
+        :param title: title of the window
         """
         self._screen_width = int(screen_width)
         self._screen_height = int(screen_height)
